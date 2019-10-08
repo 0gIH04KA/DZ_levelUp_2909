@@ -14,11 +14,12 @@ namespace DZ_levelUp_2909
     {
         Form1 F1;
         BusinessLogic BL;
+         
 
         public UserInterface(Form1 form)
         {
             this.F1 = form;
-            BL = new BusinessLogic(form);
+            this.BL = new BusinessLogic(form);
 
         }
 

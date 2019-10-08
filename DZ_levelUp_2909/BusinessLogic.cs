@@ -15,7 +15,7 @@ namespace DZ_levelUp_2909
         public BusinessLogic(Form1 form)
         {
             this.F1 = form;
-            UI = new UserInterface(form);
+            this.UI = new UserInterface(form);
         }
 
 
