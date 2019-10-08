@@ -371,10 +371,10 @@
             // 
             // textBoxEditPass
             // 
-            this.textBoxEditPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.textBoxEditPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
             this.textBoxEditPass.Location = new System.Drawing.Point(225, 299);
             this.textBoxEditPass.Name = "textBoxEditPass";
-            this.textBoxEditPass.Size = new System.Drawing.Size(170, 26);
+            this.textBoxEditPass.Size = new System.Drawing.Size(170, 20);
             this.textBoxEditPass.TabIndex = 8;
             // 
             // buttonEditPass
@@ -593,53 +593,52 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem lToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem LanguageRussian;
-        private System.Windows.Forms.ToolStripMenuItem LanguageEnglish;
-        private System.Windows.Forms.GroupBox groupBoxRussian;
-        private System.Windows.Forms.Button buttonRus;
-        private System.Windows.Forms.TextBox screenRus;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label ResRus;
-        private System.Windows.Forms.GroupBox groupBoxEnglish;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox screenEng;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label ResEng;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ToolStripMenuItem LanguageUkrainian;
-        private System.Windows.Forms.GroupBox groupBoxUkrainian;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.TextBox screenUkr;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label ResUkr;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ToolStripMenuItem scheduleToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem clickHereToolStripMenuItem;
-        private System.Windows.Forms.GroupBox groupBoxSchedule;
-        private System.Windows.Forms.Label labelPassword;
-        private System.Windows.Forms.TextBox textBoxSchedule;
-        private System.Windows.Forms.CheckBox checkBoxSunday;
-        private System.Windows.Forms.CheckBox checkBoxSaturday;
-        private System.Windows.Forms.CheckBox checkBoxFriday;
-        private System.Windows.Forms.CheckBox checkBoxThursday;
-        private System.Windows.Forms.CheckBox checkBoxWednesday;
-        private System.Windows.Forms.CheckBox checkBoxTuesday;
-        private System.Windows.Forms.CheckBox checkBoxMonday;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button buttonСonfirm;
-        private System.Windows.Forms.TextBox textBoxPassword;
-        private System.Windows.Forms.Button buttonPassword;
-        private System.Windows.Forms.Label labelCheckPass;
-        private System.Windows.Forms.Label labelDescription;
-        private System.Windows.Forms.TextBox textBoxEditPass;
-        private System.Windows.Forms.Button buttonEditPass;
-        private System.Windows.Forms.Button buttonСonfirmPass;
-        private System.Windows.Forms.Label labelEditPass;
-        private System.Windows.Forms.Button buttonСonfirmPath;
+        public System.Windows.Forms.TextBox textBoxSchedule;
+        public System.Windows.Forms.MenuStrip menuStrip1;
+        public System.Windows.Forms.GroupBox groupBoxRussian;
+        public System.Windows.Forms.GroupBox groupBoxEnglish;
+        public System.Windows.Forms.GroupBox groupBoxUkrainian;
+        public System.Windows.Forms.GroupBox groupBoxSchedule;
+        public System.Windows.Forms.ToolStripMenuItem lToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem LanguageRussian;
+        public System.Windows.Forms.ToolStripMenuItem LanguageEnglish;
+        public System.Windows.Forms.Button buttonRus;
+        public System.Windows.Forms.TextBox screenRus;
+        public System.Windows.Forms.Label label1;
+        public System.Windows.Forms.Label label2;
+        public System.Windows.Forms.Label ResRus;
+        public System.Windows.Forms.Button button1;
+        public System.Windows.Forms.TextBox screenEng;
+        public System.Windows.Forms.Label label3;
+        public System.Windows.Forms.Label ResEng;
+        public System.Windows.Forms.Label label5;
+        public System.Windows.Forms.ToolStripMenuItem LanguageUkrainian;
+        public System.Windows.Forms.Button button2;
+        public System.Windows.Forms.TextBox screenUkr;
+        public System.Windows.Forms.Label label4;
+        public System.Windows.Forms.Label ResUkr;
+        public System.Windows.Forms.Label label7;
+        public System.Windows.Forms.ToolStripMenuItem scheduleToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem clickHereToolStripMenuItem;
+        public System.Windows.Forms.Label labelPassword;
+        public System.Windows.Forms.CheckBox checkBoxSunday;
+        public System.Windows.Forms.CheckBox checkBoxSaturday;
+        public System.Windows.Forms.CheckBox checkBoxFriday;
+        public System.Windows.Forms.CheckBox checkBoxThursday;
+        public System.Windows.Forms.CheckBox checkBoxWednesday;
+        public System.Windows.Forms.CheckBox checkBoxTuesday;
+        public System.Windows.Forms.CheckBox checkBoxMonday;
+        public System.Windows.Forms.Button button3;
+        public System.Windows.Forms.Button buttonСonfirm;
+        public System.Windows.Forms.TextBox textBoxPassword;
+        public System.Windows.Forms.Button buttonPassword;
+        public System.Windows.Forms.Label labelCheckPass;
+        public System.Windows.Forms.Label labelDescription;
+        public System.Windows.Forms.TextBox textBoxEditPass;
+        public System.Windows.Forms.Button buttonEditPass;
+        public System.Windows.Forms.Button buttonСonfirmPass;
+        public System.Windows.Forms.Label labelEditPass;
+        public System.Windows.Forms.Button buttonСonfirmPath;
     }
 }
 

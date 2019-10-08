@@ -9,12 +9,21 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
+
+
 // 096 536 17 93 елена васил
 
 namespace DZ_levelUp_2909
 {
     public partial class Form1 : Form
     {
+        UserInterface UI = new UserInterface();
+        BusinessLogic BL = new BusinessLogic();     
+
+
+
+
         const int POIN_X = 12;
         const int POIN_Y = 27;
 
@@ -39,13 +48,11 @@ namespace DZ_levelUp_2909
         {
             InitializeComponent();
 
-            this.Width = WIDTHT;
-            this.Height = HEIGHT;
+            //this.Width = WIDTHT;
+            //this.Height = HEIGHT;
 
-            groupBoxRussian.Visible = true;
-            groupBoxEnglish.Visible = false;
-            groupBoxUkrainian.Visible = false;
-            groupBoxSchedule.Visible = false;
+            UI.PrimarySettings();
+            
         }
 
         private void LanguageRussian_Click(object sender, EventArgs e)
@@ -59,6 +66,8 @@ namespace DZ_levelUp_2909
             groupBoxEnglish.Visible = false;
             groupBoxUkrainian.Visible = false;
             groupBoxSchedule.Visible = false;
+            
+
         }
 
         private void ButtonClickRus(object sender, EventArgs e)
