@@ -17,6 +17,8 @@ namespace DZ_levelUp_2909
         UserInterface UI;
         BusinessLogic BL;
 
+
+
         const int DEFAULT_MASK = 1;
         string path = @"C:\Users\Vitaliy\Desktop";
         string Pass = "Пароль";

@@ -12,9 +12,16 @@ namespace DZ_levelUp_2909
         Form1 F1;
         UserInterface UI;
 
-        DeysOfWeekRus weekRus = DeysOfWeekRus.Ничего;
-        DeysOfWeeKEng weekEng = DeysOfWeeKEng.NotSelect;
-        DeysOfWeeKUkr weekUkr = DeysOfWeeKUkr.Нічого;
+        public BusinessLogic(Form1 form)
+        {
+            this.F1 = form;
+            UI = new UserInterface(form);
+        }
+
+
+        DeysOfWeekRus weekRus = DeysOfWeekRus.ничего;
+        DeysOfWeeKEng weekEng = DeysOfWeeKEng.notSelect;
+        DeysOfWeeKUkr weekUkr = DeysOfWeeKUkr.нічого;
 
         ScheduleDeysOfWeeK week = new ScheduleDeysOfWeeK();
 
@@ -27,10 +34,7 @@ namespace DZ_levelUp_2909
         string Pass = "Пароль";
         int maskEncryption = 1;
 
-        public BusinessLogic(Form1 form)
-        {
-            this.F1 = form;
-        }
+       
 
 
         public string Print(string str)
@@ -73,35 +77,35 @@ namespace DZ_levelUp_2909
 
             switch (weekUkr)
             {
-                case DeysOfWeeKUkr.Нічого:
+                case DeysOfWeeKUkr.нічого:
                     strResultUkr = "Нічого";
                     break;
 
-                case DeysOfWeeKUkr.Понеділок:
+                case DeysOfWeeKUkr.понеділок:
                     strResultUkr = "Понеділок";
                     break;
 
-                case DeysOfWeeKUkr.Вівторок:
+                case DeysOfWeeKUkr.вівторок:
                     strResultUkr = "Вівторок";
                     break;
 
-                case DeysOfWeeKUkr.Середа:
+                case DeysOfWeeKUkr.середа:
                     strResultUkr = "Середа";
                     break;
 
-                case DeysOfWeeKUkr.Четверг:
+                case DeysOfWeeKUkr.четверг:
                     strResultUkr = "Четверг";
                     break;
 
-                case DeysOfWeeKUkr.Пятниця:
+                case DeysOfWeeKUkr.пятниця:
                     strResultUkr = "П'ятниця";
                     break;
 
-                case DeysOfWeeKUkr.Субота:
+                case DeysOfWeeKUkr.субота:
                     strResultUkr = "Субота";
                     break;
 
-                case DeysOfWeeKUkr.Неділя:
+                case DeysOfWeeKUkr.неділя:
                     strResultUkr = "Неділя";
                     break;
 
@@ -121,35 +125,35 @@ namespace DZ_levelUp_2909
 
             switch (weekEng)
             {
-                case DeysOfWeeKEng.NotSelect:
+                case DeysOfWeeKEng.notSelect:
                     strResultEng = "NotSelect";
                     break;
 
-                case DeysOfWeeKEng.Monday:
+                case DeysOfWeeKEng.monday:
                     strResultEng = "Monday";
                     break;
 
-                case DeysOfWeeKEng.Tuesday:
+                case DeysOfWeeKEng.tuesday:
                     strResultEng = "Tuesday";
                     break;
 
-                case DeysOfWeeKEng.Wednesday:
+                case DeysOfWeeKEng.wednesday:
                     strResultEng = "Wednesday";
                     break;
 
-                case DeysOfWeeKEng.Thursday:
+                case DeysOfWeeKEng.thursday:
                     strResultEng = "Thursday";
                     break;
 
-                case DeysOfWeeKEng.Friday:
+                case DeysOfWeeKEng.friday:
                     strResultEng = "Friday";
                     break;
 
-                case DeysOfWeeKEng.Saturday:
+                case DeysOfWeeKEng.saturday:
                     strResultEng = "Saturday";
                     break;
 
-                case DeysOfWeeKEng.Sunday:
+                case DeysOfWeeKEng.sunday:
                     strResultEng = "Sunday";
                     break;
 
@@ -169,35 +173,35 @@ namespace DZ_levelUp_2909
 
             switch (weekRus)
             {
-                case DeysOfWeekRus.Ничего:
+                case DeysOfWeekRus.ничего:
                     strResultRus = "Ничего";
                     break;
 
-                case DeysOfWeekRus.Понедельник:
+                case DeysOfWeekRus.понедельник:
                     strResultRus = "Понедельник";
                     break;
 
-                case DeysOfWeekRus.Вторник:
+                case DeysOfWeekRus.вторник:
                     strResultRus = "Вторник";
                     break;
 
-                case DeysOfWeekRus.Среда:
+                case DeysOfWeekRus.среда:
                     strResultRus = "Среда";
                     break;
 
-                case DeysOfWeekRus.Четверг:
+                case DeysOfWeekRus.четверг:
                     strResultRus = "Четверг";
                     break;
 
-                case DeysOfWeekRus.Пятница:
+                case DeysOfWeekRus.пятница:
                     strResultRus = "Пятница";
                     break;
 
-                case DeysOfWeekRus.Суббота:
+                case DeysOfWeekRus.суббота:
                     strResultRus = "Суббота";
                     break;
 
-                case DeysOfWeekRus.Воскресенье:
+                case DeysOfWeekRus.воскресенье:
                     strResultRus = "Воскресенье";
                     break;
 

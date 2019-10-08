@@ -14,9 +14,12 @@ namespace DZ_levelUp_2909
     {
         Form1 F1;
         BusinessLogic BL;
+
         public UserInterface(Form1 form)
         {
             this.F1 = form;
+            BL = new BusinessLogic(form);
+
         }
 
         const int POIN_X = 12;
@@ -28,7 +31,7 @@ namespace DZ_levelUp_2909
         const int WIDTHT_Schedule = 440;
         const int HEIGHT_Schedule = 500;
 
-        int CountEditing = 0;
+        //int CountEditing = 0;
 
 
 
@@ -58,7 +61,7 @@ namespace DZ_levelUp_2909
 
         public void GetButtonClickRus()
         {
-            string str = F1.screenRus.Text;
+            string str = F1.screenRus.Text.ToLower();
             F1.ResRus.Text = BL.Print(str);
         }
 
@@ -101,7 +104,7 @@ namespace DZ_levelUp_2909
 
         public void GetButtonClickEng()
         {
-            string str = F1.screenEng.Text;
+            string str = F1.screenEng.Text.ToLower();
             F1.ResEng.Text = BL.Print(str);
         }
 
@@ -120,7 +123,7 @@ namespace DZ_levelUp_2909
 
         public void GetButtonClickUkr()
         {
-            string str = F1.screenUkr.Text;
+            string str = F1.screenUkr.Text.ToLower();
             F1.ResUkr.Text = BL.Print(str);
         }
 
@@ -209,7 +212,7 @@ namespace DZ_levelUp_2909
             F1.buttonСonfirmPath.Visible = false;
             F1.labelEditPass.Visible = false;
             
-            CountEditing = 0;
+            //CountEditing = 0;
         }
 
         public void EnabledeSeting()

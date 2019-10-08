@@ -8,14 +8,14 @@ namespace DZ_levelUp_2909
 {
     enum DeysOfWeeKEng : byte
     {
-        NotSelect = 0,
-        Monday,
-        Tuesday,
-        Wednesday,
-        Thursday,
-        Friday,
-        Saturday,
-        Sunday
+        notSelect = 0,
+        monday,
+        tuesday,
+        wednesday,
+        thursday,
+        friday,
+        saturday,
+        sunday
     }
     
 
