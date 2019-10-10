@@ -15,12 +15,10 @@ namespace DZ_levelUp_2909
         Form1 F1;
         BusinessLogic BL;
          
-
-        public UserInterface(Form1 form)
+        public UserInterface(Form1 form, BusinessLogic businessLogic)
         {
             this.F1 = form;
-            this.BL = new BusinessLogic(form);
-
+            this.BL = businessLogic;
         }
 
         const int POIN_X = 12;
@@ -32,9 +30,7 @@ namespace DZ_levelUp_2909
         const int WIDTHT_Schedule = 440;
         const int HEIGHT_Schedule = 500;
 
-        //int CountEditing = 0;
-
-
+        int CountEditing = 0;
 
         public void PrimarySettings()
         {
@@ -128,8 +124,6 @@ namespace DZ_levelUp_2909
             F1.ResUkr.Text = BL.Print(str);
         }
 
-        //
-
         public void SettingsSchedule()
         {
             F1.Width = WIDTHT_Schedule;
@@ -162,9 +156,46 @@ namespace DZ_levelUp_2909
             DisabledSeting();
         }
 
+        public void SuccessfulComparison()
+        {
+            F1.labelCheckPass.Text = "Пароль введен верно продолжайте редактирование";
+            EnabledeEiting();
+            DisabledPass();
+        }
 
+        public void UnsuccessfulComparison()
+        {
+            F1.labelCheckPass.Text = "Пароль введен НЕ верно!";
+        }
 
-        public void EnabledeEiting()
+        public void GearCustomization()
+        {
+            if ((CountEditing % 2) == 0)
+            {
+                EnabledeVisibleCustomization();
+
+                if (F1.textBoxPassword.Visible)
+                {
+                    //EnabledeSeting();
+                    DisabledSeting();
+                }
+                else
+                {
+                    EnabledeSeting();
+                    //DisabledSeting();
+                }
+                F1.labelEditPass.Visible = true;
+                F1.labelEditPass.Text = "Введите новый пароль или путь";
+                CountEditing++;
+            }
+            else 
+            {
+                DisabledVisibleCustomization();
+                CountEditing--;
+            }
+        }
+
+        private void EnabledeEiting()
         {
             F1.textBoxSchedule.Enabled = true;
             F1.button3.Enabled = true;
@@ -179,7 +210,7 @@ namespace DZ_levelUp_2909
             F1.checkBoxSunday.Enabled = true;
         }
 
-        public void DisabledEditing()
+        private void DisabledEditing()
         {
             F1.textBoxSchedule.Enabled = false;
             F1.button3.Enabled = false;
@@ -194,11 +225,12 @@ namespace DZ_levelUp_2909
             F1.checkBoxSunday.Enabled = false;
         }
 
-        public void EnabledePass()
+        private void EnabledePass()
         {
             F1.labelPassword.Visible = true;
             F1.buttonPassword.Visible = true;
             F1.textBoxPassword.Visible = true;
+
         }
 
         public void DisabledPass()
@@ -208,28 +240,52 @@ namespace DZ_levelUp_2909
             F1.buttonPassword.Visible = false;
             F1.textBoxPassword.Visible = false;
 
-            F1.textBoxEditPass.Visible = false;
-            F1.buttonСonfirmPass.Visible = false;
-            F1.buttonСonfirmPath.Visible = false;
-            F1.labelEditPass.Visible = false;
-            
-            //CountEditing = 0;
+            DisabledVisibleCustomization();
+
+            CountEditing = 0;
         }
 
-        public void EnabledeSeting()
+        private void DisabledVisibleCustomization()
+        {
+            F1.textBoxEditPass.Visible = false;     
+            F1.buttonСonfirmPass.Visible = false;   
+            F1.buttonСonfirmPath.Visible = false;   
+            F1.labelEditPass.Visible = false;       
+        }
+
+        private void EnabledeVisibleCustomization()
+        {
+            F1.textBoxEditPass.Visible = true;
+            F1.buttonСonfirmPass.Visible = true;
+            F1.buttonСonfirmPath.Visible = true;
+            F1.labelEditPass.Visible = true;
+        }
+
+        private void EnabledeSeting()
         {
             F1.buttonСonfirmPass.Enabled = true;
             F1.buttonСonfirmPath.Enabled = true;
             F1.textBoxEditPass.Enabled = true;
         }
 
-        public void DisabledSeting()
+        private void DisabledSeting()
         {
             F1.buttonСonfirmPass.Enabled = false;
             F1.buttonСonfirmPath.Enabled = false;
             F1.textBoxEditPass.Enabled = false;
         }
 
+        public void ShowSuccessfulPassword()
+        {
+            F1.textBoxEditPass.Clear();
+            F1.labelEditPass.Text = "Пароль успешно изменен";
+        }
+
+        public void ShowSuccessfulPath()
+        {
+            F1.textBoxEditPass.Clear();
+            F1.labelEditPass.Text = "Путь успешно изменен";
+        }
 
 
 

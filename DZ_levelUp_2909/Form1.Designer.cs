@@ -381,7 +381,7 @@
             // 
             this.buttonEditPass.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonEditPass.BackgroundImage")));
             this.buttonEditPass.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.buttonEditPass.Location = new System.Drawing.Point(360, 382);
+            this.buttonEditPass.Location = new System.Drawing.Point(360, 376);
             this.buttonEditPass.Name = "buttonEditPass";
             this.buttonEditPass.Size = new System.Drawing.Size(35, 35);
             this.buttonEditPass.TabIndex = 7;

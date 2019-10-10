@@ -3,21 +3,25 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Drawing;
 using System.IO;
+
+
+
 
 namespace DZ_levelUp_2909
 {
-    class BusinessLogic
+    public class BusinessLogic 
     {
         Form1 F1;
-        UserInterface UI;
+
+        public UserInterface UI { get; set; }
 
         public BusinessLogic(Form1 form)
         {
             this.F1 = form;
-            this.UI = new UserInterface(form);
         }
-
 
         DeysOfWeekRus weekRus = DeysOfWeekRus.ничего;
         DeysOfWeeKEng weekEng = DeysOfWeeKEng.notSelect;
@@ -25,17 +29,18 @@ namespace DZ_levelUp_2909
 
         ScheduleDeysOfWeeK week = new ScheduleDeysOfWeeK();
 
+        static Random rnd = new Random ();
+
+        const int MIN_VALUE = 0,
+                  MAX_VALUE = 100000;
         
         string path = @"C:\Users\Vitaliy\Desktop";
-
         string pathMask = @"\mask.txt";
         string pathPass = @"\passwordEncrypt.txt";
 
         string Pass = "Пароль";
-        int maskEncryption = 1;
 
-       
-
+        int maskEncryption = rnd.Next(MIN_VALUE, MAX_VALUE);
 
         public string Print(string str)
         {
@@ -69,7 +74,7 @@ namespace DZ_levelUp_2909
             return string.Empty;
         }
 
-        public string GetDaySelectionUkr(string str)
+        private string GetDaySelectionUkr(string str)
         {
             string strResultUkr = string.Empty;
 
@@ -117,7 +122,7 @@ namespace DZ_levelUp_2909
             return strResultUkr;
         }
 
-        public string GetDaySelectionEng(string str)
+        private string GetDaySelectionEng(string str)
         {
             string strResultEng = string.Empty;
 
@@ -165,7 +170,7 @@ namespace DZ_levelUp_2909
             return strResultEng;
         }
 
-        public string GetDaySelectionRus(string str)
+        private string GetDaySelectionRus(string str)
         {
             string strResultRus = string.Empty;
 
@@ -298,14 +303,14 @@ namespace DZ_levelUp_2909
             }
         }
 
-        public void PasswordEncrypt()
+        private void PasswordEncrypt(string path, string pathPass, string pathMask)
         {
+            AvailabilityFile(path, pathPass, pathMask);
+
             if (!File.Exists(path + pathPass))
             {
-
                 if (!File.Exists(path + pathMask))
                 {
-
                     CreateFile(path, pathMask, Convert.ToString(maskEncryption));
                 }
 
@@ -313,21 +318,106 @@ namespace DZ_levelUp_2909
                 string destination = EncryptionPassword(mask, Pass);
 
                 CreateFile(path, pathPass, destination);
-
             }
         }
 
-        public string OpenFile(string path, string type)
+        private string PasswordEnc(string path, string pathPass)
         {
-            FileStream file1 = new FileStream(path + type, FileMode.Open); //создаем файловый поток
-            StreamReader reader = new StreamReader(file1); // создаем «потоковый читатель» и связываем его с файловым потоком
+            return OpenFile(path, pathPass);
+        }
+
+        private string UsserEncrypt(string path, string pathMask)
+        {
+            string usserPass = F1.textBoxPassword.Text;
+
+            if (!File.Exists(path + pathMask))
+            {
+                CreateFile(path, pathMask, Convert.ToString(maskEncryption));
+            }
+
+            int mask = int.Parse(OpenFile(path, pathMask));
+
+            return EncryptionPassword(mask, usserPass);
+
+        }
+
+        public void GetComparisonPassword()
+        {
+            PasswordEncrypt(path, pathPass, pathMask);
+
+            string passwordEncod = PasswordEnc(path, pathPass);
+            string usserEncod = UsserEncrypt(path, pathMask);
+
+            F1.textBoxPassword.Clear();
+
+            if (passwordEncod == usserEncod)
+            {
+                UI.SuccessfulComparison();
+            }
+            else
+            {
+                UI.UnsuccessfulComparison();
+            }
+        }
+
+        public void ChangePassword()
+        {
+            if (File.Exists(path + pathPass))
+            {
+                DeleteFile(path, pathPass);
+
+                Pass = F1.textBoxEditPass.Text;
+                UI.ShowSuccessfulPassword();
+            }
+            else
+            {
+                Pass = F1.textBoxEditPass.Text;
+                UI.ShowSuccessfulPassword();
+            }
+        }
+
+        public void ChangePath()
+        {
+            if (!(F1.textBoxEditPass.Text == ""))
+            {
+                path = string.Empty;
+
+                path = @"" + F1.textBoxEditPass.Text;
+                UI.ShowSuccessfulPath();
+            }
+            else
+            {
+                F1.labelEditPass.Text = "Укажите путь! ";
+            }
+        }
+
+        private void AvailabilityFile(string path, string pathPass, string pathMask)
+        {
+            if (File.Exists(path + pathPass) || File.Exists(path + pathMask))
+            {
+                if (!File.Exists(path + pathPass))
+                {
+                    DeleteFile(path, pathPass);
+                }
+
+                if (!File.Exists(path + pathMask))
+                {
+                    DeleteFile(path, pathMask);
+                }
+            }
+        }
+
+        private string OpenFile(string path, string type)
+        {
+            FileStream file = new FileStream(path + type, FileMode.Open); //создаем файловый поток
+            StreamReader reader = new StreamReader(file); // создаем «потоковый читатель» и связываем его с файловым потоком
             string recording = reader.ReadToEnd(); //считываем все данные с потока
             reader.Close(); //закрываем поток
 
             return recording;
         }
 
-        public void CreateFile(string path, string type, string writeToFile)
+        private void CreateFile(string path, string type, string writeToFile)
         {
             FileStream file = new FileStream(path + type, FileMode.Create); //создаем файловый поток
             StreamWriter writer = new StreamWriter(file); //создаем «потоковый писатель» и связываем его с файловым потоком
@@ -335,7 +425,12 @@ namespace DZ_levelUp_2909
             writer.Close();
         }
 
-        public string EncryptionPassword(int mask,  string Pass)
+        private void DeleteFile(string path, string type)
+        {
+            File.Delete(path + type);
+        }
+
+        private string EncryptionPassword(int mask,  string Pass)
         {
             int maskk = Convert.ToInt32(mask);
 
